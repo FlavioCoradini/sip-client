@@ -1,0 +1,37 @@
+extends layout
+
+block content
+
+  script(src="/javascripts/table.js")
+
+  h1 Records
+
+  
+
+
+  
+  div#RecordsTable.display(cellspacing='0', width='100%')
+    table
+      thead
+        tr
+          th Call-ID
+          th Caller
+          th Callee
+          th Time
+          th
+      tbody
+        each record in records
+          tr
+            td
+              label #{record.call_id}
+            td
+              label #{record.caller}
+            td
+              label #{record.callee}
+            td
+              label #{record.time}
+            td
+              a(href='/records/download/#{record.call_id}')
+                img(src='http://localhost:3000/images/download.png', width='22')
+
+  

@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+  script(src="/javascripts/table.js")
+
+  h1 Ports
+  
+  div#PortsTable.display(cellspacing='0', width='100%')
+    table
+      thead
+        tr
+          th PORT NUMBER
+          th AVAILABLE
+      tbody
+        each port in ports
+          tr
+            td
+              label #{port.number}
+            td
+              if port.available == true
+                label(style='color: green;') #{port.available}
+              else
+                label(style='color: red;') #{port.available}
+
+  
